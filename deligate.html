@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>My List Items </h1>
+    <ul id="list-container">
+        <li class="list-item">List-item-1</li>
+        <li class="list-item">List-item-2</li>
+        <li class="list-item">List-item-3</li>
+        <li class="list-item">List-item-4</li>
+        <li class="list-item">List-item-5</li>
+        <li class="list-item">List-item-6</li>
+        <li class="list-item">List-item-7</li>
+        <li class="list-item">List-item-8</li>
+        <li class="list-item">List-item-9</li>
+    </ul>
+    <button id="add-btn">Add items</button>
+    <script>
+        const ul = document.getElementById('list-container');
+        const items = document.getElementsByClassName('list-item');
+
+        ul.addEventListener('click', function (event) {
+            event.target.parentNode.removeChild(event.target);
+        })
+
+        const addButton = document.getElementById('add-btn');
+
+        addButton.addEventListener('click', function () {
+            const li = document.createElement('li');
+            li.innerText = 'New list item';
+            ul.appendChild(li);
+        })
+    </script>
+</body>
+
+</html>

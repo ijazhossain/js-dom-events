@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onclick="bodyHandler()">
+    <h1>Bubbling of events</h1>
+    <section onclick="sectionHandler()" id="section">
+        <ul onclick="ulHandler()" id="list-ul">
+            <li onclick="liHandler()" id="list-item-1">List item-1</li>
+            <li id="list-item-2">List item-2</li>
+            <li id="list-item-3">List item-3</li>
+            <li id="list-item-4">List item-4</li>
+            <li id="list-item-5">List item-5</li>
+        </ul>
+    </section>
+    <script>
+        function liHandler() {
+            console.log('list item clicked');
+            // event.stopPropagation();
+        }
+        function ulHandler() {
+            console.log('ul clicked');
+
+        }
+        function sectionHandler() {
+            console.log('section clicked');
+        }
+        function bodyHandler() {
+            console.log('body clicked');
+        }
+        document.getElementById('list-item-1').addEventListener('click', function () {
+            console.log('list item-2 clicked');
+            // event.stopImmediatePropagation()
+
+        })
+        document.getElementById('list-item-1').addEventListener('click', function () {
+            console.log('list item-3 clicked')
+
+        })
+        document.getElementById('list-item-1').addEventListener('click', function () {
+            console.log('list item-4 clicked')
+        })
+    </script>
+</body>
+
+</html>

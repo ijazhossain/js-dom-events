@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Events</title>
+</head>
+
+<body id="body">
+    <h1 id="heading">Exploring Events</h1>
+    <p id="input-info"></p>
+    <input type="text" name="text" id="input-field">
+    <button id="update-btn">Update</button>
+
+    <button onclick="makeGold()">Changing heading </button>
+    <button id="addParagraph">Add a paragraph</button>
+    <script src="event-summary.js"></script>
+    <script>
+        function makeGold() {
+            const h1 = document.getElementById('heading');
+            h1.innerText = 'Heading has changed '
+        }
+        document.getElementById('addParagraph').addEventListener('click', function () {
+            const body = document.getElementById('body');
+            const paragraph = document.createElement('p');
+            paragraph.innerText = 'A New Paragraph';
+            body.appendChild(paragraph);
+        })
+        document.getElementById('update-btn').addEventListener('click', function () {
+            const inputField = document.getElementById('input-field');
+            let inputFieldValue = inputField.value;
+            console.log(inputFieldValue);
+            const paragraph = document.getElementById('input-info');
+            paragraph.innerText = inputFieldValue;
+            inputField.value = '';
+        })
+    </script>
+</body>
+
+</html>
